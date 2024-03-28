@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        input[type="number"], select {
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        h3 {
+            margin-top: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <h2>Calculator</h2>
+</center>
+<form action="/calculate" method="post">
+    <input type="number" name="num1" placeholder="Enter number 1" required>
+    <select name="operation">
+        <option value="add">+</option>
+        <option value="subtract">-</option>
+        <option value="multiply">*</option>
+        <option value="divide">/</option>
+    </select>
+    <input type="number" name="num2" placeholder="Enter number 2" required>
+    <button type="submit">Calculate</button>
+</form>
+<center>
+    <div th:if="${result}">
+        <h3 th:text="'Result: ' + ${result}"></h3>
+    </div>
+</center>
+
+</body>
+</html>
+ 
